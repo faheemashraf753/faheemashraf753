@@ -47,7 +47,13 @@ I enjoy experimenting with Python, exploring AI tools, building practical applic
 ## `$ tech_stack`
 
 ### Programming Languages
+<div align="center">
 
+<img src="assets/animations/tech-stack.gif"
+     width="100%"
+     alt="Animated Technology Stack Dashboard">
+
+</div>
 <p>
   <img src="https://skillicons.dev/icons?i=python,java,js,html,css,mysql" />
 </p>
