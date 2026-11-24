@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Faheem Ul Islam Rather - Aspiring AI Engineer, Python Developer and Generative AI Enthusiast.">
+
+    <meta name="theme-color" content="#080b16">
+
+    <title>Faheem | AI Engineer Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="script.js" defer></script>
+    <script type="module" src="3d-scene.js"></script>
+    <script src="portrait.js" defer></script>
+
+</head>
+
+<body>
+
+    <canvas id="ai-universe"></canvas>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="navbar">
+
+        <a href="#home" class="logo">
+            FAHEEM<span>.</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <a href="#contact" class="nav-button">
+            Let's Connect <span>↗</span>
+        </a>
+
+        <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero section" id="home">
+
+            <div class="hero-content">
+
+                <div class="availability">
+                    <span class="status-dot"></span>
+                    OPEN TO LEARNING & OPPORTUNITIES
+                </div>
+
+                <p class="hero-greeting">HELLO, I'M</p>
+
+                <h1>
+                    Faheem Ul Islam
+                    <span>Rather.</span>
+                </h1>
+
+                <h2>
+                    Aspiring <span id="typingText">AI Engineer</span>
+                    <span class="typing-cursor">|</span>
+                </h2>
+
+                <p class="hero-description">
+                    I build with Python, explore Artificial Intelligence,
+                    and turn ideas into practical applications.
+
+                    Currently focused on Machine Learning,
+                    Generative AI and intelligent systems.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="button-primary">
+                        Explore My Work <span>↗</span>
+                    </a>
+
+                    <a href="#contact" class="button-secondary">
+                        Get In Touch
+                    </a>
+
+                </div>
+
+                <div class="hero-socials">
+
+                    <a href="https://github.com/faheemashraf753" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+
+                    <a href="https://linkedin.com/in/faheem-ashraf-rather" target="_blank"
+                        rel="noopener noreferrer">LinkedIn ↗</a>
+
+                    <a href="https://www.instagram.com/fury_faheem_/" target="_blank"
+                        rel="noopener noreferrer">Instagram ↗</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="orbit orbit-three"></div>
+
+                <div class="portrait-frame particle-frame">
+                    <canvas id="portraitCanvas" aria-label="Animated particle portrait of Faheem">
+                    </canvas>
+                </div>
+
+                <div class="floating-card card-python">
+                    <span>🐍</span>
+                    <div>
+                        <strong>Python</strong>
+                        <small>Development</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-ai">
+                    <span>✦</span>
+                    <div>
+                        <strong>Generative AI</strong>
+                        <small>Exploring possibilities</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-code">
+                    <span>⌘</span>
+                    <div>
+                        <strong>Building</strong>
+                        <small>Real-world projects</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hero-bottom">
+                <span>BASED IN INDIA</span>
+                <span>SCROLL TO EXPLORE ↓</span>
+                <span>AI • CODE • INNOVATION</span>
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+
+        <section class="section content-section" id="about">
+
+            <div class="section-heading">
+                <span>01 / ABOUT ME</span>
+                <h2>A little about <span>my journey.</span></h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-main glass-card">
+
+                    <h3>Learning today. Building for tomorrow.</h3>
+
+                    <p>
+                        I'm a Computer Science and Engineering student
+                        at Mewar University, interested in building
+                        intelligent applications and understanding
+                        how modern AI systems work.
+                    </p>
+
+                    <p>
+                        My journey includes Python development,
+                        machine learning, data analytics and
+                        API integration. I'm currently working
+                        towards becoming an AI Engineer with a
+                        focus on Generative AI.
+                    </p>
+
+                    <p>
+                        I believe in learning by building,
+                        experimenting and improving one project
+                        at a time.
+                    </p>
+
+                </div>
+
+                <div class="about-details">
+
+                    <div class="glass-card detail-card">
+                        <span>🎓</span>
+                        <div>
+                            <small>EDUCATION</small>
+                            <h3>B.Tech CSE</h3>
+                            <p>Mewar University</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card detail-card">
+                        <span>🤖</span>
+                        <div>
+                            <small>CAREER INTEREST</small>
+                            <h3>AI Engineering</h3>
+                            <p>Generative AI & ML</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card detail-card">
+                        <span>💻</span>
+                        <div>
+                            <small>MAIN LANGUAGE</small>
+                            <h3>Python</h3>
+                            <p>Development & AI</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILLS SECTION -->
+
+        <section class="section content-section" id="skills">
+
+            <div class="section-heading">
+                <span>02 / TECHNOLOGIES</span>
+                <h2>Tools I use to <span>build.</span></h2>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card glass-card">
+                    <span>🐍</span>
+                    <h3>Python</h3>
+                    <p>Programming & Automation</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <span>🧠</span>
+                    <h3>Machine Learning</h3>
+                    <p>Model Development</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <span>✨</span>
+                    <h3>Generative AI</h3>
+                    <p>LLMs & AI Applications</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <span>📊</span>
+                    <h3>Data Analytics</h3>
+                    <p>Pandas, NumPy & Plotly</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <span>⚡</span>
+                    <h3>FastAPI</h3>
+                    <p>Backend Development</p>
+                </div>
+
+                <div class="skill-card glass-card">
+                    <span>🔌</span>
+                    <h3>API Integration</h3>
+                    <p>Building Connected Apps</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS SECTION -->
+
+        <!-- PROJECTS SECTION -->
+
+        <section class="section content-section" id="projects">
+
+            <div class="section-heading">
+                <span>03 / SELECTED WORK</span>
+                <h2>Projects I've <span>built.</span></h2>
+                <p class="section-intro">
+                    A collection of things I've worked on while learning,
+                    experimenting and building with technology.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- ROSE -->
+
+                <article class="project-card glass-card featured-project">
+
+                    <div class="project-top">
+                        <span class="project-number">01 / FEATURED</span>
+                        <span class="project-status ongoing">IN DEVELOPMENT</span>
+                    </div>
+
+                    <div class="project-visual rose-visual">
+                        <div class="rose-orbit"></div>
+                        <div class="rose-core">R</div>
+                        <span class="visual-label">PERSONAL AI SYSTEM</span>
+                    </div>
+
+                    <h3>ROSE — Personal AI Assistant</h3>
+
+                    <p>
+                        My personal AI assistant project, designed to bring
+                        AI-powered assistance into everyday workflows.
+                        It uses a modular architecture with dedicated
+                        General Assistant and Coding Assistant modules.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Gemini API</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <span class="project-note">Currently developing</span>
+                    </div>
+
+                </article>
+
+
+                <!-- BANKING ANALYTICS -->
+
+                <article class="project-card glass-card">
+
+                    <div class="project-top">
+                        <span class="project-number">02</span>
+                        <span class="project-status completed">COMPLETED</span>
+                    </div>
+
+                    <div class="project-visual banking-visual">
+                        <span>📊</span>
+                        <strong>10,000+</strong>
+                        <small>Customer records analysed</small>
+                    </div>
+
+                    <h3>European Banking Churn Analytics</h3>
+
+                    <p>
+                        Analysed banking customer data to explore
+                        customer segmentation, behaviour and churn patterns.
+                        Built an interactive dashboard to communicate
+                        the findings.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Pandas</span>
+                        <span>Plotly</span>
+                        <span>Streamlit</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/faheemashraf753/European-Banking-Churn-Analytics" target="_blank"
+                            rel="noopener noreferrer" class="project-link">
+                            View on GitHub ↗
+                        </a>
+                    </div>
+
+                </article>
+
+
+                <!-- CREDIT RISK -->
+
+                <article class="project-card glass-card">
+
+                    <div class="project-top">
+                        <span class="project-number">03</span>
+                        <span class="project-status completed">PROJECT</span>
+                    </div>
+
+                    <div class="project-visual credit-visual">
+                        <span>💳</span>
+                        <strong>Credit Risk</strong>
+                        <small>Machine Learning Prediction</small>
+                    </div>
+
+                    <h3>Credit Risk Prediction</h3>
+
+                    <p>
+                        A machine learning project focused on financial
+                        data preparation, exploratory analysis and
+                        predicting customer credit risk.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Scikit-learn</span>
+                        <span>Pandas</span>
+                        <span>Streamlit</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/faheemashraf753" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
+                            Explore GitHub ↗
+                        </a>
+                    </div>
+
+                </article>
+
+
+                <!-- COFFEE FORECASTING -->
+
+                <article class="project-card glass-card">
+
+                    <div class="project-top">
+                        <span class="project-number">04</span>
+                        <span class="project-status completed">PROJECT</span>
+                    </div>
+
+                    <div class="project-visual coffee-visual">
+                        <span>☕</span>
+                        <strong>Demand Analysis</strong>
+                        <small>Retail Transaction Analytics</small>
+                    </div>
+
+                    <h3>Afficionado Coffee Forecasting</h3>
+
+                    <p>
+                        Explored retail transaction data to understand
+                        customer purchasing patterns and work on
+                        demand forecasting.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Data Analysis</span>
+                        <span>Forecasting</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://github.com/faheemashraf753" target="_blank" rel="noopener noreferrer"
+                            class="project-link">
+                            Explore GitHub ↗
+                        </a>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+
+        <section class="section content-section" id="experience">
+
+            <div class="section-heading">
+                <span>04 / EXPERIENCE</span>
+                <h2>Learning through <span>experience.</span></h2>
+            </div>
+
+            <div class="experience-list">
+
+                <div class="experience-card glass-card">
+
+                    <span class="experience-date">MAR 2026 — JUN 2026</span>
+
+                    <h3>Machine Learning Intern</h3>
+
+                    <h4>Unified Mentor Pvt. Ltd.</h4>
+
+                    <p>
+                        Worked on project-based machine learning
+                        tasks involving data preparation,
+                        exploratory analysis and model workflows.
+                    </p>
+
+                </div>
+
+                <div class="experience-card glass-card">
+
+                    <span class="experience-date">APR 2025 — MAY 2025</span>
+
+                    <h3>Python Development Trainee</h3>
+
+                    <h4>CTTC, Bhubaneswar</h4>
+
+                    <p>
+                        Completed Python development training
+                        covering programming fundamentals,
+                        object-oriented programming and
+                        Django-based development.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+
+        <section class="section content-section contact-section" id="contact">
+
+            <div class="section-heading">
+                <span>05 / GET IN TOUCH</span>
+                <h2>Let's build something <span>interesting.</span></h2>
+            </div>
+
+            <p>
+                Have an interesting idea, project or opportunity?
+                Feel free to connect with me.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="https://github.com/faheemashraf753" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+
+                <a href="https://linkedin.com/in/faheem-ashraf-rather" target="_blank"
+                    rel="noopener noreferrer">LinkedIn ↗</a>
+
+                <a href="https://www.instagram.com/fury_faheem_/" target="_blank" rel="noopener noreferrer">Instagram
+                    ↗</a>
+
+                <a href="https://x.com/faheem_ashraf7" target="_blank" rel="noopener noreferrer">X ↗</a>
+
+                <a href="https://snapchat.com/t/sIcsg6GY" target="_blank" rel="noopener noreferrer">Snapchat ↗</a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <p>Designed & built by Faheem Ul Islam Rather.</p>
+
+        <p>© <span id="year"></span> All rights reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>

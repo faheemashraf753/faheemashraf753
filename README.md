@@ -138,6 +138,20 @@ A web development project built with Python and Django.
 
 ---
 
+---
+
+## Contribution Activity
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/faheemashraf753/faheemashraf753/output/github-contribution-grid-snake-dark.svg"
+     width="100%"
+     alt="GitHub contribution snake animation">
+
+</div>
+
+---
+
 ## GitHub Statistics
 
 <div align="center">
