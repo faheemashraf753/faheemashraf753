@@ -1,106 +1,93 @@
-// Mobile navigation
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-const menuButton = document.getElementById("menuButton");
-const navLinks = document.getElementById("navLinks");
+const menuToggle = $("#menuToggle");
+const primaryNav = $("#primaryNav");
 
-menuButton.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
+if (menuToggle && primaryNav) {
+  menuToggle.addEventListener("click", () => {
+    const open = primaryNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+  });
 
-    menuButton.setAttribute("aria-expanded", isOpen);
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
+  $$("a", primaryNav).forEach(link => {
     link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
+      primaryNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
     });
-});
+  });
 
-
-// Typing animation
-
-const typingText = document.getElementById("typingText");
-
-const roles = [
-    "AI Engineer",
-    "Python Developer",
-    "ML Enthusiast",
-    "Generative AI Explorer"
-];
-
-let roleIndex = 0;
-let characterIndex = 0;
-let deleting = false;
-
-function typeRole() {
-
-    const currentRole = roles[roleIndex];
-
-    if (!deleting) {
-
-        typingText.textContent =
-            currentRole.substring(0, characterIndex + 1);
-
-        characterIndex++;
-
-        if (characterIndex === currentRole.length) {
-            deleting = true;
-            setTimeout(typeRole, 1400);
-            return;
-        }
-
-    } else {
-
-        typingText.textContent =
-            currentRole.substring(0, characterIndex - 1);
-
-        characterIndex--;
-
-        if (characterIndex === 0) {
-            deleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-        }
+  document.addEventListener("click", event => {
+    if (!primaryNav.contains(event.target) && !menuToggle.contains(event.target)) {
+      primaryNav.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
     }
-
-    setTimeout(typeRole, deleting ? 45 : 90);
+  });
 }
 
-typeRole();
+const roleTarget = $("#typedRole");
+const roles = ["AI Engineer", "Python Developer", "ML Explorer", "Generative AI Builder"];
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+if (roleTarget && !reducedMotion) {
+  let roleIndex = 0;
+  let charIndex = roles[0].length;
+  let deleting = false;
+  roleTarget.textContent = roles[0];
 
-// Current year
+  const type = () => {
+    const current = roles[roleIndex];
+    charIndex += deleting ? -1 : 1;
+    roleTarget.textContent = current.slice(0, charIndex);
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+    let delay = deleting ? 42 : 82;
+    if (!deleting && charIndex === current.length) {
+      deleting = true;
+      delay = 1450;
+    } else if (deleting && charIndex === 0) {
+      deleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      delay = 300;
+    }
+    window.setTimeout(type, delay);
+  };
+  window.setTimeout(type, 1500);
+}
 
+const year = $("#year");
+if (year) year.textContent = new Date().getFullYear();
 
-// Active navigation link
-
-const sections = document.querySelectorAll("main section[id]");
-const navigationLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-    let currentSection = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (window.scrollY >= sectionTop) {
-            currentSection = section.getAttribute("id");
-        }
-
+const revealItems = $$(".reveal");
+if ("IntersectionObserver" in window && !reducedMotion) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
+  revealItems.forEach(item => revealObserver.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("is-visible"));
+}
 
-    navigationLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === `#${currentSection}`) {
-            link.classList.add("active");
-        }
-
+const sections = $$("main section[id]");
+const navLinks = $$("#primaryNav a");
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => {
+        const active = link.getAttribute("href") === `#${entry.target.id}`;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
     });
+  }, { rootMargin: "-35% 0px -55% 0px" });
+  sections.forEach(section => sectionObserver.observe(section));
+}
 
-});
+document.documentElement.classList.add("js-ready");

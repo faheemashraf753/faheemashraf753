@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b16">
+  <meta name="description" content="Faheem Ul Islam Rather — aspiring AI engineer building with Python, machine learning and generative AI.">
+  <meta property="og:title" content="Faheem Ul Islam Rather | AI Engineer Portfolio">
+  <meta property="og:description" content="Projects, experiments and a journey into AI engineering.">
+  <title>Faheem Ul Islam Rather — AI Engineer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script type="module" src="3d-scene.js"></script>
+  <script src="portrait.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="ai-universe" aria-hidden="true"></canvas>
+  <div class="ambient ambient-cyan" aria-hidden="true"></div>
+  <div class="ambient ambient-violet" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Faheem home">F<span>.</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="primaryNav" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#rose">ROSE AI</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="#contact">Let's connect <span>↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="live-dot"></span> BUILDING · LEARNING · EXPLORING</div>
+        <p class="overline">HELLO, I'M</p>
+        <h1>Faheem Ul Islam<br><span>Rather.</span></h1>
+        <h2 class="role-line">Aspiring <span id="typedRole">AI Engineer</span><i aria-hidden="true"></i></h2>
+        <p class="hero-description">I build with Python, explore artificial intelligence, and turn ideas into practical applications. My current focus is machine learning, generative AI and intelligent software.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="button button-ghost" href="#contact">Get in touch</a>
+        </div>
+        <div class="social-row" aria-label="Social profiles">
+          <a href="https://github.com/faheemashraf753" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://linkedin.com/in/faheem-ashraf-rather" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/fury_faheem_/" target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a href="https://x.com/faheem_ashraf7" target="_blank" rel="noreferrer">X ↗</a>
+        </div>
+      </div>
+      <div class="hero-art reveal" aria-label="Animated digital portrait">
+        <div class="portrait-halo"></div>
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="portrait-shell"><canvas id="portraitCanvas" role="img" aria-label="Particle illustration based on Faheem's portrait"></canvas><img class="portrait-fallback" src="../assets/profile/portrait-dots.svg" alt="Faheem's digital dot portrait"></div>
+        <div class="float-chip chip-python"><b>Py</b><span><strong>Python</strong><small>Development</small></span></div>
+        <div class="float-chip chip-ai"><b>✦</b><span><strong>Generative AI</strong><small>Exploring LLMs</small></span></div>
+        <div class="float-chip chip-build"><b>⌘</b><span><strong>Builder mindset</strong><small>Learning by doing</small></span></div>
+        <div class="art-caption">HUMAN CURIOSITY <span>×</span> MACHINE INTELLIGENCE</div>
+      </div>
+      <div class="hero-meta"><span>BASED IN INDIA</span><span>SCROLL TO EXPLORE ↓</span><span>AI · CODE · INNOVATION</span></div>
+    </section>
+
+    <section class="section-wrap section-block" id="about">
+      <div class="section-heading reveal"><span class="section-index">01 / ABOUT</span><h2>A little about <em>my journey.</em></h2><p>Computer science student. Curious builder. Future-focused learner.</p></div>
+      <div class="about-layout">
+        <article class="panel about-panel reveal"><span class="panel-kicker">THE SHORT VERSION</span><h3>Learning today.<br><em>Building for tomorrow.</em></h3><p>I'm pursuing a B.Tech in Computer Science and Engineering at Mewar University. I enjoy using Python to explore data, build applications and understand how intelligent systems work.</p><p>I'm working towards an AI engineering career, with a particular interest in machine learning, generative AI and practical LLM-powered applications. I learn best by building, testing and improving real projects.</p></article>
+        <div class="fact-stack">
+          <article class="panel fact-card reveal"><span class="fact-icon">⌂</span><div><small>EDUCATION</small><strong>B.Tech · Computer Science</strong><p>Mewar University</p></div></article>
+          <article class="panel fact-card reveal"><span class="fact-icon">✳</span><div><small>CAREER DIRECTION</small><strong>AI Engineering</strong><p>Machine Learning · Generative AI</p></div></article>
+          <article class="panel fact-card reveal"><span class="fact-icon">⌘</span><div><small>PRIMARY LANGUAGE</small><strong>Python</strong><p>Data, automation and applications</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block" id="skills">
+      <div class="section-heading reveal"><span class="section-index">02 / TOOLKIT</span><h2>Tools I use to <em>build.</em></h2><p>A growing toolkit across programming, data and application development.</p></div>
+      <div class="skill-grid">
+        <article class="skill-card panel reveal"><span>01</span><div class="skill-symbol">Py</div><h3>Python</h3><p>Programming, scripting and application logic</p></article>
+        <article class="skill-card panel reveal"><span>02</span><div class="skill-symbol">ML</div><h3>Machine Learning</h3><p>Data preparation and model workflows</p></article>
+        <article class="skill-card panel reveal"><span>03</span><div class="skill-symbol">✦</div><h3>Generative AI</h3><p>Gemini API and LLM-powered applications</p></article>
+        <article class="skill-card panel reveal"><span>04</span><div class="skill-symbol">▥</div><h3>Data Analytics</h3><p>Pandas, NumPy, Plotly and visualisation</p></article>
+        <article class="skill-card panel reveal"><span>05</span><div class="skill-symbol">⚡</div><h3>Backend</h3><p>FastAPI, Flask and Django foundations</p></article>
+        <article class="skill-card panel reveal"><span>06</span><div class="skill-symbol">↔</div><h3>Web & APIs</h3><p>HTML, CSS, JavaScript and API integration</p></article>
+      </div>
+      <div class="tool-ribbon reveal"><span>ALSO WORKING WITH</span><b>SQL</b><b>MySQL</b><b>Git</b><b>GitHub</b><b>Streamlit</b><b>Scikit-learn</b><b>VS Code</b></div>
+    </section>
+
+    <section class="section-wrap section-block" id="projects">
+      <div class="section-heading reveal"><span class="section-index">03 / SELECTED WORK</span><h2>Things I've <em>worked on.</em></h2><p>Projects that reflect what I'm learning and building.</p></div>
+      <div class="project-grid">
+        <article class="project-card panel project-feature reveal"><div class="project-top"><span>01 / FLAGSHIP</span><span class="status status-progress">IN DEVELOPMENT</span></div><div class="project-art rose-art"><div class="mini-orbit"></div><div class="mini-core">R</div><label>PERSONAL AI ASSISTANT</label></div><h3>ROSE — Personal AI Assistant</h3><p>A modular personal assistant project integrating Google's Gemini API, with General Assistant and Coding Assistant modules.</p><div class="tags"><span>Python</span><span>FastAPI</span><span>Gemini API</span><span>JavaScript</span></div><span class="project-foot">Currently developing · Details below ↓</span></article>
+        <article class="project-card panel reveal"><div class="project-top"><span>02 / DATA ANALYTICS</span><span class="status status-done">PROJECT</span></div><div class="project-art data-art"><div class="chart-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>10,000+</strong><label>BANKING RECORDS ANALYSED</label></div><h3>European Banking Churn Analytics</h3><p>Explored customer behaviour, segmentation and churn patterns, and built an interactive Streamlit dashboard.</p><div class="tags"><span>Python</span><span>Pandas</span><span>Plotly</span><span>Streamlit</span></div><a class="text-link" href="https://github.com/faheemashraf753/European-Banking-Churn-Analytics" target="_blank" rel="noreferrer">View repository ↗</a></article>
+        <article class="project-card panel reveal"><div class="project-top"><span>03 / MACHINE LEARNING</span><span class="status status-done">PROJECT</span></div><div class="project-art credit-art"><div class="credit-orbit">◎</div><label>CREDIT RISK MODELLING</label></div><h3>Credit Risk Prediction</h3><p>Financial data preprocessing, exploratory analysis and machine-learning-based credit risk prediction.</p><div class="tags"><span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Streamlit</span></div><a class="text-link" href="https://github.com/faheemashraf753" target="_blank" rel="noreferrer">Explore GitHub ↗</a></article>
+        <article class="project-card panel reveal"><div class="project-top"><span>04 / DATA PROJECT</span><span class="status status-done">PROJECT</span></div><div class="project-art coffee-art"><div class="coffee-cup">☕</div><label>RETAIL · TRANSACTIONS · FORECASTING</label></div><h3>Afficionado Coffee Forecasting</h3><p>Retail transaction analysis focused on identifying purchasing patterns and exploring demand forecasting.</p><div class="tags"><span>Python</span><span>Data Analysis</span><span>Forecasting</span></div><a class="text-link" href="https://github.com/faheemashraf753" target="_blank" rel="noreferrer">Explore GitHub ↗</a></article>
+        <article class="project-card panel reveal"><div class="project-top"><span>05 / WEB DEVELOPMENT</span><span class="status status-done">TRAINING PROJECT</span></div><div class="project-art web-art"><div class="browser-icon"><b>f</b><i></i><i></i><i></i></div><label>DJANGO WEB APPLICATION</label></div><h3>Facebook UI Clone</h3><p>A Facebook-inspired web development training project built using Python and Django.</p><div class="tags"><span>Python</span><span>Django</span><span>HTML</span><span>CSS</span></div><a class="text-link" href="https://github.com/faheemashraf753" target="_blank" rel="noreferrer">Explore GitHub ↗</a></article>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block rose-section" id="rose">
+      <div class="section-heading reveal"><span class="section-index">04 / FLAGSHIP BUILD</span><h2>Meet <em>ROSE.</em></h2><p>A personal AI assistant taking shape through modular design and practical experimentation.</p></div>
+      <div class="rose-layout">
+        <div class="rose-copy reveal"><div class="rose-wordmark"><span>R</span><div><b>ROSE</b><small>PERSONAL AI ASSISTANT</small></div></div><h3>Intelligence designed around <em>you.</em></h3><p>ROSE is my personal AI assistant project. The goal is to create a useful, modular experience for everyday assistance and coding-related help, powered by an AI model API.</p><p>The current project direction includes a General Assistant and a Coding Assistant. Other capabilities remain planned until implemented and tested.</p><div class="rose-badges"><span class="live-dot"></span> ACTIVE DEVELOPMENT</div></div>
+        <div class="rose-console panel reveal"><div class="console-head"><span><i></i> ROSE / SYSTEM OVERVIEW</span><small>CONCEPT PREVIEW</small></div><div class="rose-reactor"><div class="reactor-ring r1"></div><div class="reactor-ring r2"></div><div class="reactor-ring r3"></div><div class="reactor-core">R</div><span class="reactor-label">AI CORE</span></div><div class="module-list"><div><b>✦</b><span><strong>General Assistant</strong><small>Everyday AI assistance</small></span><em>01</em></div><div><b>⌘</b><span><strong>Coding Assistant</strong><small>Programming support</small></span><em>02</em></div></div><div class="console-foot"><span>MODULAR PROJECT STRUCTURE</span><span>ROSE // 001</span></div></div>
+      </div>
+      <div class="rose-stack reveal"><div><span class="section-index">CURRENT TECHNOLOGY DIRECTION</span><h3>Built with a practical stack.</h3></div><div class="stack-chips"><span>Python</span><span>FastAPI</span><span>Google Gemini API</span><span>HTML / CSS / JS</span><span>MySQL</span></div></div>
+      <div class="architecture panel reveal"><div><span class="section-index">PROJECT DESIGN</span><h3>Modular architecture</h3><p>A high-level representation of the current project direction, not a claim that every integration is finished.</p></div><div class="architecture-flow"><div class="arch-node">USER INTERFACE<small>Web frontend</small></div><b>↓</b><div class="arch-node arch-main">FASTAPI BACKEND<small>Application layer</small></div><b>↓</b><div class="arch-branches"><div class="arch-node">GENERAL ASSISTANT</div><div class="arch-node">CODING ASSISTANT</div></div><b>↓</b><div class="arch-branches"><div class="arch-node">GEMINI API<small>Model integration</small></div><div class="arch-node">MYSQL<small>Data layer</small></div></div></div></div>
+    </section>
+
+    <section class="section-wrap section-block" id="experience">
+      <div class="section-heading reveal"><span class="section-index">05 / EXPERIENCE</span><h2>Learning through <em>experience.</em></h2><p>Training and project-based experience that helped shape my foundation.</p></div>
+      <div class="timeline">
+        <article class="timeline-item panel reveal"><div class="timeline-date">MAR 2026 — JUN 2026</div><div><h3>Machine Learning Intern</h3><h4>Unified Mentor Pvt. Ltd.</h4><p>Worked on project-based machine learning tasks involving data preparation, exploratory data analysis and model workflows using Python and related libraries.</p></div></article>
+        <article class="timeline-item panel reveal"><div class="timeline-date">APR 2025 — MAY 2025</div><div><h3>Python Development Trainee</h3><h4>CTTC · Bhubaneswar</h4><p>Completed Python development training covering programming fundamentals, object-oriented programming and Django-based development.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section-wrap contact-section" id="contact">
+      <div class="contact-orb" aria-hidden="true"></div>
+      <div class="section-heading reveal"><span class="section-index">06 / CONTACT</span><h2>Let's make something <em>meaningful.</em></h2><p>Open to connecting, exchanging ideas and exploring learning or project opportunities.</p></div>
+      <div class="contact-links reveal">
+        <a href="https://github.com/faheemashraf753" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://linkedin.com/in/faheem-ashraf-rather" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/fury_faheem_/" target="_blank" rel="noreferrer">Instagram ↗</a>
+        <a href="https://x.com/faheem_ashraf7" target="_blank" rel="noreferrer">X ↗</a>
+        <a href="https://snapchat.com/t/sIcsg6GY" target="_blank" rel="noreferrer">Snapchat ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#home">F<span>.</span></a><p>Designed and built by Faheem Ul Islam Rather.</p><span>© <span id="year"></span> · KEEP BUILDING.</span></footer>
+  <noscript><p class="noscript">This portfolio works best with JavaScript enabled. The main content remains available without animations.</p></noscript>
+</body>
+</html>

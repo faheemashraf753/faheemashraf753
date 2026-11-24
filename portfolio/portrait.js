@@ -1,226 +1,182 @@
-const canvas = document.getElementById("portraitCanvas");
-const ctx = canvas.getContext("2d");
+(() => {
+  const canvas = document.getElementById("portraitCanvas");
+  if (!canvas) return;
 
-const image = new Image();
+  const context = canvas.getContext("2d", { alpha: true });
+  if (!context) return;
 
-image.src = "../assets/profile/portrait-dots.svg";
+  const image = new Image();
+  image.src = "../assets/profile/portrait-dots.svg";
 
-const particles = [];
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const particles = [];
+  const pointer = { x: -1000, y: -1000 };
+  let width = 0;
+  let height = 0;
+  let animationId = 0;
+  let lastFrame = 0;
 
-let width = 0;
-let height = 0;
+  const config = {
+    sampleSize: 520,
+    step: 4,
+    radius: 1.15,
+    interactionRadius: 68,
+    interactionStrength: 17,
+    floatAmount: 0.55
+  };
 
-let mouse = {
-    x: -1000,
-    y: -1000
-};
+  function resize() {
+    const bounds = canvas.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
 
-const settings = {
-    gap: 3,
-    particleSize: 1.6,
-    mouseRadius: 65,
-    movement: 0.8
-};
-
-
-// Resize canvas
-
-function resizeCanvas() {
-
-    const rect = canvas.getBoundingClientRect();
-
+    width = bounds.width;
+    height = bounds.height;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    buildParticles();
+    drawStatic();
+  }
 
-    width = rect.width;
-    height = rect.height;
-
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    createParticles();
-}
-
-
-// Create particles from the portrait
-
-function createParticles() {
-
+  function buildParticles() {
     particles.length = 0;
+    if (!image.complete || !image.naturalWidth || !width || !height) return;
 
-    if (!image.complete || !image.naturalWidth) return;
+    const sample = document.createElement("canvas");
+    sample.width = config.sampleSize;
+    sample.height = config.sampleSize;
+    const sampleContext = sample.getContext("2d", { willReadFrequently: true });
+    sampleContext.clearRect(0, 0, sample.width, sample.height);
+    sampleContext.drawImage(image, 0, 0, sample.width, sample.height);
 
-    const offscreen = document.createElement("canvas");
-
-    const offCtx = offscreen.getContext("2d", {
-        willReadFrequently: true
-    });
-
-    const sourceSize = 400;
-
-    offscreen.width = sourceSize;
-    offscreen.height = sourceSize;
-
-    offCtx.clearRect(0, 0, sourceSize, sourceSize);
-
-    offCtx.drawImage(
-        image,
-        0,
-        0,
-        sourceSize,
-        sourceSize
-    );
-
-    const pixels = offCtx.getImageData(
-        0,
-        0,
-        sourceSize,
-        sourceSize
-    ).data;
-
-    const scale = Math.min(
-        width / sourceSize,
-        height / sourceSize
-    ) * 0.92;
-
-    const offsetX = (width - sourceSize * scale) / 2;
-    const offsetY = (height - sourceSize * scale) / 2;
-
-    for (let y = 0; y < sourceSize; y += settings.gap) {
-
-        for (let x = 0; x < sourceSize; x += settings.gap) {
-
-            const index = (y * sourceSize + x) * 4;
-
-            const r = pixels[index];
-            const g = pixels[index + 1];
-            const b = pixels[index + 2];
-            const alpha = pixels[index + 3];
-
-            if (alpha < 40) continue;
-
-            const brightness = (r + g + b) / 3;
-
-            // Ignore the dark SVG background.
-            if (alpha < 30) continue;
-            if (brightness < 25) continue;
-            const color = x / sourceSize;
-
-            const opacity = Math.min(1, 0.65 + brightness / 500);
-
-            const particleColor = color < 0.5
-                ? `rgba(34, 211, 238, ${opacity})`
-                : `rgba(168, 85, 247, ${opacity})`;
-
-            const px = offsetX + x * scale;
-            const py = offsetY + y * scale;
-
-            particles.push({
-
-                x: px,
-                y: py,
-
-                originalX: px,
-                originalY: py,
-
-                size: settings.particleSize,
-
-                color: particleColor,
-
-                phase: Math.random() * Math.PI * 2
-
-            });
-
-        }
+    let pixels;
+    try {
+      pixels = sampleContext.getImageData(0, 0, sample.width, sample.height).data;
+    } catch (error) {
+      console.error("Could not read the portrait image.", error);
+      showFallback();
+      return;
     }
-}
 
+    const scale = Math.min(width / sample.width, height / sample.height) * 0.94;
+    const offsetX = (width - sample.width * scale) / 2;
+    const offsetY = (height - sample.height * scale) / 2;
 
-// Mouse interaction
+    for (let y = 0; y < sample.height; y += config.step) {
+      for (let x = 0; x < sample.width; x += config.step) {
+        const index = (y * sample.width + x) * 4;
+        const r = pixels[index];
+        const g = pixels[index + 1];
+        const b = pixels[index + 2];
+        const alpha = pixels[index + 3];
+        const brightness = (r + g + b) / 3;
 
-canvas.addEventListener("pointermove", event => {
+        // The SVG has a near-black background. Exclude it, retain coloured portrait dots.
+        if (alpha < 30 || brightness < 28) continue;
 
-    const rect = canvas.getBoundingClientRect();
+        const hue = x / sample.width;
+        const colour = hue < 0.52
+          ? `rgba(65,225,245,${0.62 + brightness / 900})`
+          : `rgba(174,130,255,${0.62 + brightness / 900})`;
 
-    mouse.x = event.clientX - rect.left;
-    mouse.y = event.clientY - rect.top;
+        const px = offsetX + x * scale;
+        const py = offsetY + y * scale;
+        particles.push({
+          x: px, y: py, originX: px, originY: py,
+          phase: Math.random() * Math.PI * 2,
+          size: config.radius * (0.72 + Math.random() * 0.55),
+          colour
+        });
+      }
+    }
 
-});
+    if (!particles.length) showFallback();
+    else {
+      const fallback = document.querySelector(".portrait-fallback");
+      if (fallback) fallback.style.opacity = "0";
+    }
+  }
 
-canvas.addEventListener("pointerleave", () => {
+  function showFallback() {
+    const fallback = document.querySelector(".portrait-fallback");
+    if (fallback) fallback.style.opacity = "0.9";
+  }
 
-    mouse.x = -1000;
-    mouse.y = -1000;
-
-});
-
-
-// Animation
-
-function animate(time) {
-
-    ctx.clearRect(0, 0, width, height);
-
+  function drawStatic() {
+    context.clearRect(0, 0, width, height);
     particles.forEach(particle => {
-
-        const dx = particle.x - mouse.x;
-        const dy = particle.y - mouse.y;
-
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        let targetX = particle.originalX;
-        let targetY = particle.originalY;
-
-        if (distance < settings.mouseRadius && distance > 0) {
-
-            const force =
-                (settings.mouseRadius - distance) /
-                settings.mouseRadius;
-
-            targetX += (dx / distance) * force * 22;
-            targetY += (dy / distance) * force * 22;
-
-        }
-
-        const floating =
-            Math.sin(time * 0.0015 + particle.phase) *
-            settings.movement;
-
-        particle.x += (targetX - particle.x) * 0.08;
-        particle.y += (targetY + floating - particle.y) * 0.08;
-
-        ctx.beginPath();
-
-        ctx.arc(
-            particle.x,
-            particle.y,
-            particle.size,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fillStyle = particle.color;
-        ctx.fill();
-
+      context.beginPath();
+      context.arc(particle.originX, particle.originY, particle.size, 0, Math.PI * 2);
+      context.fillStyle = particle.colour;
+      context.fill();
     });
+  }
 
-    requestAnimationFrame(animate);
-}
+  function render(timestamp) {
+    animationId = 0;
+    if (document.hidden) return;
+    if (timestamp - lastFrame < 30) {
+      animationId = requestAnimationFrame(render);
+      return;
+    }
+    lastFrame = timestamp;
+    context.clearRect(0, 0, width, height);
 
+    for (const particle of particles) {
+      const dx = particle.originX - pointer.x;
+      const dy = particle.originY - pointer.y;
+      const distance = Math.hypot(dx, dy);
+      let targetX = particle.originX;
+      let targetY = particle.originY;
 
-// Start
+      if (distance < config.interactionRadius && distance > 0.01) {
+        const force = (1 - distance / config.interactionRadius) * config.interactionStrength;
+        targetX += (dx / distance) * force;
+        targetY += (dy / distance) * force;
+      }
 
-image.onload = () => {
+      const drift = prefersReducedMotion ? 0 : Math.sin(timestamp * 0.001 + particle.phase) * config.floatAmount;
+      particle.x += (targetX - particle.x) * 0.12;
+      particle.y += (targetY + drift - particle.y) * 0.12;
 
-    resizeCanvas();
+      context.beginPath();
+      context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      context.fillStyle = particle.colour;
+      context.fill();
+    }
 
-    animate(0);
+    animationId = requestAnimationFrame(render);
+  }
 
-};
+  function start() {
+    resize();
+    if (prefersReducedMotion) drawStatic();
+    else if (!animationId) animationId = requestAnimationFrame(render);
+  }
 
-image.onerror = () => {
-    console.error("Could not load the portrait SVG.");
-};
+  canvas.addEventListener("pointermove", event => {
+    const rect = canvas.getBoundingClientRect();
+    pointer.x = event.clientX - rect.left;
+    pointer.y = event.clientY - rect.top;
+  }, { passive: true });
 
-window.addEventListener("resize", resizeCanvas);
+  canvas.addEventListener("pointerleave", () => {
+    pointer.x = -1000;
+    pointer.y = -1000;
+  });
+
+  image.addEventListener("load", start, { once: true });
+  image.addEventListener("error", showFallback, { once: true });
+  window.addEventListener("resize", resize, { passive: true });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animationId);
+      animationId = 0;
+    } else if (!prefersReducedMotion && particles.length) {
+      animationId = requestAnimationFrame(render);
+    }
+  });
+
+  if (image.complete && image.naturalWidth) start();
+})();
