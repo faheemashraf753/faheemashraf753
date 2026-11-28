@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320">
+  <defs>
+    <radialGradient id="heroBg" cx="78%" cy="28%" r="88%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="42%" stop-color="#0f0f23"/>
+      <stop offset="100%" stop-color="#070710"/>
+    </radialGradient>
+    <radialGradient id="avatarFill" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#1a1740"/>
+    </radialGradient>
+    <radialGradient id="glowCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pillBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="320" rx="14" fill="url(#heroBg)"/>
+
+  <!-- Right glow -->
+  <circle cx="745" cy="160" r="185" fill="url(#glowCircle)"/>
+
+  <!-- Border -->
+  <rect width="900" height="320" rx="14" fill="none" stroke="#4f46e5" stroke-width="1" stroke-opacity="0.5"/>
+
+  <!-- Top accent line -->
+  <line x1="14" y1="0.5" x2="440" y2="0.5" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Background particles -->
+  <circle cx="120" cy="30" r="1.2" fill="#818cf8">
+    <animate attributeName="opacity" values="0.1;0.55;0.1" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="295" cy="14" r="1" fill="#06b6d4">
+    <animate attributeName="opacity" values="0.1;0.6;0.1" dur="4s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="455" cy="47" r="1.5" fill="#a78bfa">
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="7s" begin="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="78" cy="198" r="1" fill="#06b6d4">
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="6s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="522" cy="282" r="1.2" fill="#818cf8">
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="8s" begin="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="148" cy="288" r="0.8" fill="#ec4899">
+    <animate attributeName="opacity" values="0.1;0.6;0.1" dur="5.5s" begin="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="378" cy="303" r="1" fill="#06b6d4">
+    <animate attributeName="opacity" values="0.1;0.4;0.1" dur="9s" begin="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="560" cy="60" r="0.9" fill="#ec4899">
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="6s" begin="2.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Terminal pill -->
+  <rect x="28" y="22" width="238" height="22" rx="11" fill="#0a0a1e" stroke="#4f46e5" stroke-width="0.8" stroke-opacity="0.85"/>
+  <text x="40" y="37" font-family="'Courier New', Courier, monospace" font-size="9" fill="#818cf8">&#9658;_ /faheem &#8226; build --intelligent</text>
+
+  <!-- Status indicator -->
+  <circle cx="843" cy="30" r="4.5" fill="#22c55e">
+    <animate attributeName="opacity" values="1;0.2;1" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="843" cy="30" r="4.5" fill="none" stroke="#22c55e" stroke-width="4" stroke-opacity="0.15">
+    <animate attributeName="r" values="5;10;5" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity" values="0.2;0;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <text x="855" y="34" font-family="'Courier New', Courier, monospace" font-size="8" fill="#22c55e" letter-spacing="1">ACTIVE</text>
+
+  <!-- Eyebrow -->
+  <text x="28" y="69" font-family="'Courier New', Courier, monospace" font-size="9" fill="#06b6d4" letter-spacing="2.5">&#8212; AI &#183; ENGINEERING &#183; MACHINE LEARNING</text>
+
+  <!-- Name -->
+  <text x="28" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="50" font-weight="bold" fill="#f8fafc">Faheem</text>
+  <text x="28" y="170" font-family="Georgia, 'Times New Roman', serif" font-size="50" font-weight="bold" fill="#f8fafc" font-style="italic">Ashraf.</text>
+
+  <!-- Thin accent line -->
+  <line x1="28" y1="180" x2="268" y2="180" stroke="#4f46e5" stroke-width="1.5" stroke-opacity="0.55"/>
+
+  <!-- Subtitle -->
+  <text x="28" y="200" font-family="'Courier New', Courier, monospace" font-size="9" fill="#a78bfa" letter-spacing="1.8">AI/ML ENTHUSIAST &#183; PYTHON DEVELOPER &#183; CS ENGINEER</text>
+
+  <!-- Tagline -->
+  <text x="28" y="221" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#94a3b8" font-style="italic">Exploring intelligence. Building ideas. Turning code into possibilities.</text>
+
+  <!-- Metadata -->
+  <text x="28" y="247" font-family="'Courier New', Courier, monospace" font-size="8.5" fill="#475569" letter-spacing="0.8">B.TECH CSE &#183; MEWAR UNIVERSITY, RAJASTHAN &#183; 2023&#8211;2027</text>
+  <text x="28" y="262" font-family="'Courier New', Courier, monospace" font-size="8.5" fill="#475569" letter-spacing="0.8">ML INTERN &#183; UNIFIED MENTOR &#183; MAR&#8211;JUN 2026 &#183; CTTC PYTHON TRAINING &#183; 2025</text>
+
+  <!-- Action pills (dual-tone) -->
+  <!-- GITHUB -->
+  <rect x="28" y="278" width="148" height="24" rx="12" fill="#0a0a1e" stroke="#4f46e5" stroke-width="0.8"/>
+  <text x="40" y="294" font-family="'Courier New', Courier, monospace" font-size="8.5" fill="#6366f1" letter-spacing="0.5">&#8962; GITHUB</text>
+  <line x1="90" y1="280" x2="90" y2="300" stroke="#4f46e5" stroke-width="0.5" stroke-opacity="0.5"/>
+  <text x="97" y="294" font-family="'Courier New', Courier, monospace" font-size="7.8" fill="#c7d2fe">faheemashraf753</text>
+
+  <!-- LINKEDIN -->
+  <rect x="184" y="278" width="148" height="24" rx="12" fill="#0a0a1e" stroke="#4f46e5" stroke-width="0.8"/>
+  <text x="196" y="294" font-family="'Courier New', Courier, monospace" font-size="8.5" fill="#6366f1" letter-spacing="0.5">&#8599; LINKEDIN</text>
+  <line x1="248" y1="280" x2="248" y2="300" stroke="#4f46e5" stroke-width="0.5" stroke-opacity="0.5"/>
+  <text x="255" y="294" font-family="'Courier New', Courier, monospace" font-size="7.8" fill="#c7d2fe">faheem-ashraf</text>
+
+  <!-- LOCATION -->
+  <rect x="340" y="278" width="128" height="24" rx="12" fill="#0a0a1e" stroke="#4f46e5" stroke-width="0.8"/>
+  <text x="352" y="294" font-family="'Courier New', Courier, monospace" font-size="8.5" fill="#6366f1" letter-spacing="0.5">&#9711; LOCATION</text>
+  <line x1="412" y1="280" x2="412" y2="300" stroke="#4f46e5" stroke-width="0.5" stroke-opacity="0.5"/>
+  <text x="419" y="294" font-family="'Courier New', Courier, monospace" font-size="7.8" fill="#c7d2fe">India</text>
+
+  <!-- RIGHT: Static orbital rings -->
+  <ellipse cx="745" cy="160" rx="145" ry="145" fill="none" stroke="#4f46e5" stroke-width="0.5" stroke-dasharray="2 14" stroke-opacity="0.3"/>
+  <ellipse cx="745" cy="160" rx="115" ry="115" fill="none" stroke="#06b6d4" stroke-width="0.6" stroke-dasharray="4 12" stroke-opacity="0.35"/>
+  <ellipse cx="745" cy="160" rx="85" ry="85" fill="none" stroke="#818cf8" stroke-width="0.8" stroke-dasharray="5 9" stroke-opacity="0.5"/>
+
+  <!-- Orbiting dot 1 (outer, slow) -->
+  <g>
+    <circle cx="745" cy="15" r="2.5" fill="#ec4899">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <animateTransform attributeName="transform" type="rotate" from="0 745 160" to="360 745 160" dur="38s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Orbiting dot 2 (middle, counter) -->
+  <g>
+    <circle cx="745" cy="45" r="3" fill="#06b6d4">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <animateTransform attributeName="transform" type="rotate" from="90 745 160" to="-270 745 160" dur="22s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Orbiting dot 3 (inner, fast) -->
+  <g>
+    <circle cx="745" cy="75" r="4" fill="#a78bfa">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <animateTransform attributeName="transform" type="rotate" from="210 745 160" to="570 745 160" dur="11s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Avatar circle -->
+  <circle cx="745" cy="160" r="62" fill="url(#avatarFill)" stroke="#4f46e5" stroke-width="2"/>
+  <circle cx="745" cy="160" r="62" fill="none" stroke="#06b6d4" stroke-width="0.7" stroke-opacity="0.5"/>
+
+  <!-- Avatar initials -->
+  <text x="745" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="bold" fill="#c7d2fe" text-anchor="middle">FA</text>
+  <line x1="715" y1="162" x2="775" y2="162" stroke="#4f46e5" stroke-width="0.9" stroke-opacity="0.6"/>
+  <text x="745" y="176" font-family="'Courier New', Courier, monospace" font-size="7.5" fill="#818cf8" text-anchor="middle" letter-spacing="2">AI &#183; ML &#183; CS</text>
+
+  <!-- Corner brackets -->
+  <path d="M 697 112 L 697 120 L 705 120" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+  <path d="M 793 112 L 793 120 L 785 120" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+  <path d="M 697 208 L 697 200 L 705 200" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+  <path d="M 793 208 L 793 200 L 785 200" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+</svg>
